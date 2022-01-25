@@ -1,0 +1,6 @@
+.navLinksList{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    gap: 1rem;
+}

@@ -3,21 +3,5 @@
     grid-template-columns: repeat(3,1fr);
     align-items: center;
     justify-items: center;
-    background-color: var(--navBar);
     height: 8rem;
-}
-
-.DKlogo{
-    display: none;
-}
-
-.navLinksList{
-    display: flex;
-    list-style: none;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.navIcon{
-    margin-right: 1rem;
 }
