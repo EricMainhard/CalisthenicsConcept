@@ -1,3 +1,4 @@
-.navIcon{
-    margin-right: 1rem;
+.navIcons{
+    display: flex;
+    gap:1rem ;
 }
