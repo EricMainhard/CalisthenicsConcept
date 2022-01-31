@@ -9,6 +9,11 @@
     font-family: 'Outfit', sans-serif;
 }
 
+.container{
+    width: 80%;
+    margin: auto;
+}
+
 .sm_hidden{
     display: none;
 }
