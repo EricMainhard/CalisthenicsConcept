@@ -1,27 +1,32 @@
 import React, {useEffect,useState} from "react";
 import './itemListContainer.css';
+import ItemList from '../ItemList/ItemList';
+import productsList from '../../products.json';
 
-function ItemListContainer({productsCount}){
+function ItemListContainer(){
 
-    const [productsContent,setProductsContent] = useState();
-    const [loading,setLoading] = useState(true);
+    const [products,setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        setTimeout(()=>{
-            if (productsCount > 0) {
-                setProductsContent('products');
-            } else {
-                setProductsContent('Out of stock! :('); 
-            }
-            setLoading(false);
+        const promise = new Promise((res,rej)=>{
+            setTimeout(()=>{
+                res(productsList);
             },3000)
-            
-    })
-    
+        });
+        promise.then(result => {
+           setProducts(result);
+        })
+        promise.finally(()=>{
+            setLoading(false)
+        })
+    },[])
+
     return(
         <section className="itemListSection container">
             <div className="itemListContainer">
-                {loading === true ? 'Loading...' : productsContent}
+                {loading && 'Loading...'}
+                {!loading && <ItemList products={products}/>}
             </div>
         </section>
     )
