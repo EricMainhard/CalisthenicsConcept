@@ -1,0 +1,19 @@
+.itemCountQty{
+    display: flex;
+}
+.minus,.plus{
+    flex: 1;
+    background: none;
+}
+.qty{
+    flex: 3;
+    text-align: center;
+}
+.itemCountBtn{
+    padding: 1rem;
+    background: black;
+    color: var(--orange);
+    font-weight: 700;
+    border-radius: 2rem;
+    margin-top: 1rem;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import './item.css';
+import ItemCount from "../ItemCount/ItemCount";
 
 function Item({product}){
     return(
@@ -7,7 +8,9 @@ function Item({product}){
             <div className="itemHeader">
                 <h3>{product.title}</h3>
             </div>
-            <div className="itemBody"></div>
+            <div className="itemBody">
+                <ItemCount/>
+            </div>
         </div>
     )
 }
