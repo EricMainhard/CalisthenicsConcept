@@ -25,7 +25,7 @@ function ItemListContainer(){
     return(
         <section className="itemListSection container">
             <div className="itemListContainer">
-                {loading && 'Loading...'}
+                {loading && <p style={{textAlign:'center'}}>Loading...</p>}
                 {!loading && <ItemList products={products}/>}
             </div>
         </section>

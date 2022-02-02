@@ -1,5 +1,6 @@
 import React from 'react';
 import './homebanner.css';
+import { Link } from 'react-router-dom';
 
 export default function HomeBanner() {
   return (
@@ -12,7 +13,7 @@ export default function HomeBanner() {
             The future of street workout
           </div>
           <div className="homeBannerCta">
-            SHOP
+            <Link to="/products">SHOP</Link>
           </div>
         </div>
     </section>

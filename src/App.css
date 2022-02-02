@@ -28,11 +28,15 @@
     outline: none;
 }
 
+.link{
+    text-decoration: none;
+}
+
 @media screen and (min-width: 768px){
     .sm_hidden{
         display: block;
     }
     .lg_hidden{
-        display: none;
+        display: none!important;
     }
 }

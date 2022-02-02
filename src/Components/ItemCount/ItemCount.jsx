@@ -21,7 +21,7 @@ function ItemCount() {
             </button>
             <span className='qty'>{quantity}</span>
             <button className='plus normalBtn' onClick={handleQty}>
-                <i class="plus fas fa-plus"></i>
+                <i className="plus fas fa-plus"></i>
             </button>
         </div>
         <button className="itemCountBtn normalBtn">

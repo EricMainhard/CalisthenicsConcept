@@ -4,4 +4,6 @@
     align-items: center;
     justify-items: center;
     height: 8rem;
+    overflow: hidden;
 }
+

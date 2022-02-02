@@ -1,0 +1,31 @@
+.menuDrawer{
+    transform: translateX(150%);
+    background-color: black;
+    width: 80vw;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    transition: .5s ease-in-out;
+}
+
+.closeMenu{
+    color: var(--orange);
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.menuDrawerLink{
+    display: block;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    transition: .3s ease-in-out;
+}
+
+.menuDrawerLink:hover{
+    background-color: white;
+    color: black;
+    transition: .3s ease-in-out;
+}
