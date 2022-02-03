@@ -2,6 +2,7 @@ import React, {useEffect,useState} from "react";
 import './itemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import productsList from '../../products.json';
+import Loader from "../Loader/Loader";
 
 function ItemListContainer(){
 
@@ -15,7 +16,7 @@ function ItemListContainer(){
             },3000)
         });
         promise.then(result => {
-           setProducts(result);
+            setProducts(result);
         })
         promise.finally(()=>{
             setLoading(false)
@@ -25,8 +26,7 @@ function ItemListContainer(){
     return(
         <section className="itemListSection container">
             <div className="itemListContainer">
-                {loading && <p style={{textAlign:'center'}}>Loading...</p>}
-                {!loading && <ItemList products={products}/>}
+                {loading ? <Loader/> : <ItemList products={products}/>}
             </div>
         </section>
     )
