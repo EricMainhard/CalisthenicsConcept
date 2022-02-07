@@ -12,8 +12,11 @@ function Item({product}){
                 </div>
             </Link>
             <div className="itemBody">
-                <ItemCount stock={product.stock}/>
+                <div className="itemImg">
+                    <img src={`/img/products/${product.image}`} alt={product.title} />
+                </div>
             </div>
+                <ItemCount stock={product.stock}/>
         </div>
     )
 }

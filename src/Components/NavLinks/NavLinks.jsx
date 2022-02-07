@@ -4,8 +4,8 @@ import './navlinks.css';
 export default function NavLinks() {
   return <div className="navLinks">
     <ul className="navLinksList">
-        <li className="navLink">Materials</li>
-        <li className="navLink">Indumentary</li>
+        <li className="navLink">Accesories</li>
+        <li className="navLink">Clothes</li>
     </ul>
 </div>;
 }

@@ -1,34 +1,46 @@
 [
-    {   
-        "id": 1,
-        "title":"Product 1",
-        "description":"Description 1",
-        "price":10,
-        "stock":0,
-        "category":"Indumentary"
-    },
-    {   
-        "id": 2,
-        "title":"Product 2",
-        "description":"Description 2",
-        "price":5,
-        "stock":10,
-        "category":"Materials"
+    {
+       "id": 1,
+       "title": "Rope",
+       "description": "Rope Description",
+       "price": 10,
+       "stock": 0,
+       "category": "Accesories",
+       "image": "rope.jpg",
+       "colors": ["green"],
+       "sizes": ["U"]
     },
     {
-        "id": 3,
-        "title":"Product 3",
-        "description":"Description 3",
-        "price":20,
-        "stock":5,
-        "category":"Indumentary"
+       "id": 2,
+       "title": "Yoga Mat",
+       "description": "Yoga Mat Description",
+       "price": 5,
+       "stock": 10,
+       "category": "Accesories",
+       "image": "yoga_mat.jpeg",
+       "colors": ["violet","cadetblue","black"],
+       "sizes": ["U"]
     },
     {
-        "id": 4,
-        "title":"Product 4",
-        "description":"Description 4",
-        "price":20,
-        "stock":2,
-        "category":"Materials"
+       "id": 3,
+       "title": "Rings",
+       "description": "Rings Description",
+       "price": 20,
+       "stock": 5,
+       "category": "Accesories",
+       "image": "rings.jpg",
+       "colors": ["burlywood"],
+       "sizes": ["U"]
+    },
+    {
+       "id": 4,
+       "title": "Elastics",
+       "description": "Elastics Description",
+       "price": 20,
+       "stock": 2,
+       "category": "Accesories",
+       "image": "elastics.jpg",
+       "colors": ["cadetblue","yellow","black"],
+       "sizes": ["S","M","L"]
     }
 ]

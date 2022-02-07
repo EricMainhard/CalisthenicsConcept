@@ -1,18 +1,19 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import SingleItem from "../SingleItem/SingleItem";
-import productsList from '../../products.json';
+import SingleItem from "../SingleItem/SingleItem.jsx";
+import products from '../../products.json';
 
 function ItemDetail(){
 
     const id = useParams();
-    const [selectedProduct,setSelectedProduct] = useState();
+    const [selectedProduct,setSelectedProduct] = useState({});
     const [loading,setLoading] = useState(true);
     
     useEffect(()=>{
         setTimeout(()=>{
-            let product = productsList.find(product => product.id == id.id);
+            let product = products.find(product => product.id == id.id);
             setSelectedProduct(product);
             setLoading(false);
         },2000)
@@ -20,7 +21,7 @@ function ItemDetail(){
 
     return(
         <div className="detailContainer">
-            {loading ? <Loader/> : <ItemSingle/>}
+            {loading ? <Loader/> : <SingleItem single={selectedProduct}/>}
         </div>
     )
 }
