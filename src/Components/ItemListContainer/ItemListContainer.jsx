@@ -13,7 +13,7 @@ function ItemListContainer(){
         const promise = new Promise((res,rej)=>{
             setTimeout(()=>{
                 res(productsList);
-            },3000)
+            },2000)
         });
         promise.then(result => {
             setProducts(result);

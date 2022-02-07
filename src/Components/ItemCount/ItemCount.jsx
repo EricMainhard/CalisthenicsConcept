@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import './itemCount.css';
 
-function ItemCount() {
+function ItemCount({stock}) {
 
     const [quantity,setQuantity] = useState(0)
 
+    const handleStockLimit = ()=> {
+        alert('You have reached the limit of stock');
+    }
+
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){
-            setQuantity(quantity + 1);
+            if (quantity < stock){
+                setQuantity(quantity + 1);
+            }
         } else if (e.target.classList.contains('minus')){
             setQuantity(quantity - 1);
         }
@@ -20,7 +26,7 @@ function ItemCount() {
                 <i className="minus fas fa-minus"></i>
             </button>
             <span className='qty'>{quantity}</span>
-            <button className='plus normalBtn' onClick={handleQty}>
+            <button className='plus normalBtn' disabled={quantity === stock ? 'disabled' : ''} onClick={handleQty}>
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>

@@ -6,8 +6,8 @@ function ItemList({products}){
 
     return(
         <div className="itemsList">
-            {products.map((product,index) => {
-                return <Item key={index} product={product}/>
+            {products.map((product) => {
+                return <Item key={product.id} product={product}/>
             })}
         </div>
     )
