@@ -17,15 +17,14 @@
 
 .menuDrawerLink{
     display: block;
-    background-color: black;
+    background-color: white;
     text-align: center;
-    color: white;
+    color: black;
     padding: 1rem;
     transition: .3s ease-in-out;
 }
 
 .menuDrawerLink:hover{
-    background-color: white;
-    color: black;
+    color: var(--orange);
     transition: .3s ease-in-out;
 }

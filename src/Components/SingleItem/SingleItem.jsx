@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import './singleItem.css';
+import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
 
@@ -43,18 +44,11 @@ function SingleItem({single}) {
                     })}
                 </div>
             </div>
-            <div className="singleBtns">
-                <button onClick={handleAddToCart}>
-                    ADD TO CART
-                </button>
-                <button onClick={handleAddToWishlist}>
-                    WISHLIST
-                </button>
-            </div>
+            <ItemCount stock={single.stock}/>
             </form>
         </div>
     </div>
-  );
+);
 }
 
 export default SingleItem;

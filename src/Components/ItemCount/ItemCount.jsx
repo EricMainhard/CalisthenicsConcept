@@ -22,17 +22,14 @@ function ItemCount({stock}) {
     return (
     <div className='itemCount'>
         <div className="itemCountQty">
-            <button className='minus normalBtn' disabled={quantity === 0 ? 'disabled' : ''} onClick={handleQty}>
+            <button type="button" className='minus normalBtn' disabled={quantity === 0 ? 'disabled' : ''} onClick={handleQty}>
                 <i className="minus fas fa-minus"></i>
             </button>
             <span className='qty'>{quantity}</span>
-            <button className='plus normalBtn' disabled={quantity === stock ? 'disabled' : ''} onClick={handleQty}>
+            <button type="button" className='plus normalBtn' disabled={quantity === stock ? 'disabled' : ''} onClick={handleQty}>
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
-        <button className="itemCountBtn normalBtn">
-            ADD TO CART
-        </button>
     </div>
     );
 }
