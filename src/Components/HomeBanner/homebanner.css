@@ -33,6 +33,10 @@
     justify-content: center;
 }
 
+.homeBannerLink:hover{
+    text-decoration: underline;
+}
+
 @media screen and (min-width:768px) {
     .homeBanner{
         justify-content: flex-start;
