@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './itemCount.css';
 
-function ItemCount({stock}) {
+function ItemCount({stock,handleAddToWishlist}) {
 
     const [quantity,setQuantity] = useState(0)
 
@@ -30,6 +30,7 @@ function ItemCount({stock}) {
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
+        <button onClick={handleAddToWishlist}>Add to cart</button>
     </div>
     );
 }

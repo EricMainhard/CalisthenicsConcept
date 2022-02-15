@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
@@ -16,7 +15,8 @@ function ItemDetail(){
     useEffect(()=>{
         setTimeout(()=>{
             setError(false)
-            let product = products.find(product => product.id == id.id);
+            let product = products.find(product => product.id == id);
+            
             if (product != undefined){
                 setSelectedProduct(product);
             } else {
@@ -25,12 +25,12 @@ function ItemDetail(){
             }
             setLoading(false);
         },2000)
-    },[])
+    },[id])
 
     return(
         <div className="detailContainer">
             {loading && <Loader/>}
-            {!selectedProduct ? <SingleItem single={selectedProduct}/> : <NotFound/>}
+            {selectedProduct ? <SingleItem single={selectedProduct}/> : <NotFound/>}
         </div>
     )
 }

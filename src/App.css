@@ -33,6 +33,16 @@
     color: inherit;
 }
 
+.menuLink{
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+.menuLink:hover{
+    transition: .5s ease-in-out;
+    color: var(--orange);
+}
+
 @media screen and (min-width: 768px){
     .sm_hidden{
         display: block;

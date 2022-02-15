@@ -1,0 +1,15 @@
+.footerLinksContainer{
+    grid-column: 1/3;
+}
+
+.footerLinks{
+    color: white;
+    list-style: none;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .footerLinksContainer{
+        grid-row: 1/2;
+    }
+}
