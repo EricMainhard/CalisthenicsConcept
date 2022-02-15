@@ -13,7 +13,7 @@ export default function HomeBanner() {
             The future of street workout
           </div>
           <div className="homeBannerCta">
-            <Link to="/products">SHOP</Link>
+            <Link to="/products" className="link homeBannerLink">SHOP</Link>
           </div>
         </div>
     </section>

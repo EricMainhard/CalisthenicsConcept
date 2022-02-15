@@ -19,6 +19,7 @@ function ItemListContainer(){
             },2000)
         });
         promise.then(result => {
+            
             setProducts(result);
         })
         promise.finally(()=>{
