@@ -2,7 +2,9 @@ import React, {useState,useEffect} from "react";
 import './itemList.css';
 import Item from '../Item/Item';
 
-function ItemList({products}){
+function ItemList({products,search}){
+
+    console.log(search)
 
     return(
         <div className="itemsList">

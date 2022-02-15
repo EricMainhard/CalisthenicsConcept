@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<HomeBanner/>}/>
         <Route path="/products" element={<ItemListContainer/>}/>
         <Route path="/products/:id" element={<ItemDetail/>}/>
+        <Route path="/categories/:category" element={<ItemListContainer/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>

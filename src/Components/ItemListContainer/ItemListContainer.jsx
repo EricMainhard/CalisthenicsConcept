@@ -2,9 +2,12 @@ import React, {useEffect,useState} from "react";
 import './itemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import productsList from '../../products.json';
+import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 
 function ItemListContainer(){
+
+    const category = useParams()
 
     const [products,setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,7 +29,7 @@ function ItemListContainer(){
     return(
         <section className="itemListSection container">
             <div className="itemListContainer">
-                {loading ? <Loader/> : <ItemList products={products}/>}
+                {loading ? <Loader/> : <ItemList products={products} search={category}/>}
             </div>
         </section>
     )
