@@ -15,14 +15,9 @@ function ItemDetail(){
     useEffect(()=>{
         setTimeout(()=>{
             setError(false)
-            let product = products.find(product => product.id == id);
-            
-            if (product != undefined){
-                setSelectedProduct(product);
-            } else {
-                setError(true);
-                setSelectedProduct(null);
-            }
+            let product = products.find(product => product.id == id.id);
+            console.log(product)
+            setSelectedProduct(product);
             setLoading(false);
         },2000)
     },[id])
@@ -30,7 +25,7 @@ function ItemDetail(){
     return(
         <div className="detailContainer">
             {loading && <Loader/>}
-            {selectedProduct ? <SingleItem single={selectedProduct}/> : <NotFound/>}
+            {!loading && <SingleItem single={selectedProduct}/>}
         </div>
     )
 }

@@ -30,10 +30,18 @@
     box-shadow: 0.5px 0.5px 2px 2px;
     margin-right: .5rem;
 }
-
+.sizes{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
 .sizeBtn{
+    display: flex;
+    justify-content: center;
     padding: 1rem 2rem;
     border: none;
+    width: 2rem;
+    text-align: center;
 }
 .sizeBtn:hover{
     border: 1px solid black;

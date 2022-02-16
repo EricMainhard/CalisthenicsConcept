@@ -3,15 +3,32 @@ import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
-    function handleAddToCart(e){
-        e.preventDefault();
-        let product = e.target;
-        console.log(product)
+
+    const [singleProduct,setSingleProduct] = useState({});
+
+    function handleAddToCart(quantity){
+        setSingleProduct({...single,
+                            quantity
+        })
+        localStorage.setItem('cart',JSON.stringify(singleProduct));
     }
 
     function handleAddToWishlist(e){
         e.preventDefault()
     }
+
+    function handleSize(size){
+        setSingleProduct({...singleProduct,
+            size})
+    }
+    function handleColor(color){
+        setSingleProduct({...singleProduct,
+            color})
+    }
+
+    useEffect(()=>{
+        console.log(singleProduct);
+    },[singleProduct]);
 
     return(
         <div className='singleContainer container'>
@@ -24,29 +41,29 @@ function SingleItem({single}) {
                 <p className="singleDescription">
                     {single.description}
                 </p>
-                <form className='singleForm'>
+                <div className='singleForm'>
                 <div className="singleOptions">
                     <div className="colors">
-                            {single.colors.map(color => {
-                                return (
-                                    <button type='button' className='colorBtn' style={{backgroundColor:color}}>
+                        {single.colors.map(color => {
+                            return (
+                                <div type='button' className='colorBtn' onClick={()=>{handleColor(color)}} style={{backgroundColor:color}} >
 
-                                    </button>
-                                )
-                            })}
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="sizes">
                         {single.sizes.map(size => {
                             return (
-                                <button type='button' className='sizeBtn'>
-                                    {size}
-                                </button>
-                            )
+                                    <div type='button' className='sizeBtn' onClick={()=>{handleSize(size)}}>
+                                        {size}
+                                    </div>
+                                )
                         })}
                     </div>
                 </div>
-                <ItemCount stock={single.stock} handleAddToWishlist={handleAddToWishlist}/>
-                </form>
+                <ItemCount stock={single.stock} handleAddToCart={handleAddToCart}/>
+                </div>
             </div>
         </div>
 );
