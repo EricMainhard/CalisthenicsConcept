@@ -5,10 +5,6 @@ function ItemCount({stock,handleAddToCart}) {
 
     const [quantity,setQuantity] = useState(0)
 
-    const handleStockLimit = ()=> {
-        alert('You have reached the limit of stock');
-    }
-
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){
             if (quantity < stock){
