@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
+import CartContext from '../../Context/CartContext';
 import './itemCount.css';
 
 function ItemCount({stock,handleAddToCart}) {
-
+    const {addProduct} = useContext(CartContext);
     const [quantity,setQuantity] = useState(0)
 
     const handleQty = (e)=> {
@@ -26,7 +27,7 @@ function ItemCount({stock,handleAddToCart}) {
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
-        <button className="itemCountBtn" onClick={()=>{handleAddToCart(quantity)}}>ADD TO CART</button>
+        <button className="itemCountBtn" onClick={()=>{addProduct(quantity)}}>ADD TO CART</button>
     </div>
     );
 }

@@ -21,7 +21,9 @@
 .singleOptions{
     margin: 1rem 0;
 }
-
+.colors{
+    display: flex;
+}
 .colorBtn{
     width: 2rem;
     height: 2rem;

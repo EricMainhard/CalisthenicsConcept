@@ -1,17 +1,12 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect,useContext} from 'react';
+import CartContext from '../../Context/CartContext';
 import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
 
+    const info = useContext(CartContext);
     const [singleProduct,setSingleProduct] = useState({});
-
-    function handleAddToCart(quantity){
-        setSingleProduct({...single,
-                            quantity
-        })
-        localStorage.setItem('cart',JSON.stringify(singleProduct));
-    }
 
     function handleAddToWishlist(e){
         e.preventDefault()
@@ -25,10 +20,6 @@ function SingleItem({single}) {
         setSingleProduct({...singleProduct,
             color})
     }
-
-    useEffect(()=>{
-        console.log(singleProduct);
-    },[singleProduct]);
 
     return(
         <div className='singleContainer container'>
