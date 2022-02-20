@@ -8,7 +8,7 @@ export default function NavLinks() {
     <ul className="navLinksList">
       {categories.map(category=>{
         return(
-          <Link className="link" to={`categories/${category.name.toLowerCase()}`}>
+          <Link className="link" key={category.id} to={`categories/${category.name.toLowerCase()}`}>
             <li className="navLink menuLink">{category.name}</li> 
           </Link>
           )

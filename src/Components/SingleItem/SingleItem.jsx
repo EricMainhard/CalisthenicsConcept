@@ -1,21 +1,10 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
-
+ 
     const [singleProduct,setSingleProduct] = useState({});
-
-    function handleAddToCart(quantity){
-        setSingleProduct({...single,
-                            quantity
-        })
-        localStorage.setItem('cart',JSON.stringify(singleProduct));
-    }
-
-    function handleAddToWishlist(e){
-        e.preventDefault()
-    }
 
     function handleSize(size){
         setSingleProduct({...singleProduct,
@@ -25,10 +14,6 @@ function SingleItem({single}) {
         setSingleProduct({...singleProduct,
             color})
     }
-
-    useEffect(()=>{
-        console.log(singleProduct);
-    },[singleProduct]);
 
     return(
         <div className='singleContainer container'>
@@ -46,7 +31,7 @@ function SingleItem({single}) {
                     <div className="colors">
                         {single.colors.map(color => {
                             return (
-                                <div type='button' className='colorBtn' onClick={()=>{handleColor(color)}} style={{backgroundColor:color}} >
+                                <div type='button' key={color} className='colorBtn' onClick={()=>{handleColor(color)}} style={{backgroundColor:color}} >
 
                                 </div>
                             )
@@ -55,14 +40,14 @@ function SingleItem({single}) {
                     <div className="sizes">
                         {single.sizes.map(size => {
                             return (
-                                    <div type='button' className='sizeBtn' onClick={()=>{handleSize(size)}}>
+                                    <div type='button' key={size} className='sizeBtn' onClick={()=>{handleSize(size)}}>
                                         {size}
                                     </div>
                                 )
                         })}
                     </div>
                 </div>
-                <ItemCount stock={single.stock} handleAddToCart={handleAddToCart}/>
+                <ItemCount stock={single.stock} single={singleProduct}/>
                 </div>
             </div>
         </div>

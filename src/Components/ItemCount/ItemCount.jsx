@@ -1,17 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import './itemCount.css';
+import { CartContext } from '../../Context';
 
-function ItemCount({stock,handleAddToCart}) {
+function ItemCount({stock,single}) {
 
     const [quantity,setQuantity] = useState(0)
+    const {addProduct,productInCart} = useContext(CartContext);
+    const [product,setProduct] = useState({});
 
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){
             if (quantity < stock){
                 setQuantity(quantity + 1);
+                setProduct({...single,quantity});
             }
         } else if (e.target.classList.contains('minus')){
             setQuantity(quantity - 1);
+            setProduct({...single,quantity});
         }
     }
 
@@ -26,7 +31,7 @@ function ItemCount({stock,handleAddToCart}) {
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
-        <button className="itemCountBtn" onClick={()=>{handleAddToCart(quantity)}}>ADD TO CART</button>
+        <button className="itemCountBtn" onClick={()=>{console.log(product)}} disabled={quantity === stock ? 'disabled' : ''}>ADD TO CART</button>
     </div>
     );
 }

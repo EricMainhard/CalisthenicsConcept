@@ -3,9 +3,6 @@ import './itemList.css';
 import Item from '../Item/Item';
 
 function ItemList({products,search}){
-
-    console.log(search)
-
     return(
         <div className="itemsList">
             {products.map((product) => {

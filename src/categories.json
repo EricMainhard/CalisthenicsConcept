@@ -1,8 +1,10 @@
 [
     {
-        "name":"Accesories"
+        "name":"Accesories",
+        "id": 1
     },
     {
-        "name":"Clothes"
+        "name":"Clothes",
+        "id": 2
     }
 ]

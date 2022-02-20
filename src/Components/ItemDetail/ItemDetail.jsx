@@ -16,7 +16,6 @@ function ItemDetail(){
         setTimeout(()=>{
             setError(false)
             let product = products.find(product => product.id == id.id);
-            console.log(product)
             setSelectedProduct(product);
             setLoading(false);
         },2000)
