@@ -1,16 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState,useRef} from 'react';
 import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
- 
-    const [singleProduct,setSingleProduct] = useState({});
+
+    let colorBtn = useRef(null);
+    const [singleProduct,setSingleProduct] = useState({
+    title: single.title,
+    price: single.price,
+    id: single.id
+});
 
     function handleSize(size){
         setSingleProduct({...singleProduct,
             size})
     }
-    function handleColor(color){
+    function handleColor(color,e){
+        document.querySelectorAll('.colorBtn').forEach(btn => {
+            btn.style.border = 'none';
+        });
+        e.target.style.border = '1px solid black';
         setSingleProduct({...singleProduct,
             color})
     }
@@ -31,7 +40,7 @@ function SingleItem({single}) {
                     <div className="colors">
                         {single.colors.map(color => {
                             return (
-                                <div type='button' key={color} className='colorBtn' onClick={()=>{handleColor(color)}} style={{backgroundColor:color}} >
+                                <div type='button' key={color} className='colorBtn' useRef={colorBtn} onClick={(e)=>{handleColor(color,e)}} style={{backgroundColor:color}} >
 
                                 </div>
                             )

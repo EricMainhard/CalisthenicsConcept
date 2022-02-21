@@ -8,6 +8,13 @@ function ItemCount({stock,single}) {
     const {addProduct,productInCart} = useContext(CartContext);
     const [product,setProduct] = useState({});
 
+    const handleAddToCart = (quantity) => {
+        const cartItem = { 
+            item: single,
+            quantity: quantity
+        }
+        addProduct(cartItem)
+    }
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){
             if (quantity < stock){
@@ -31,7 +38,7 @@ function ItemCount({stock,single}) {
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
-        <button className="itemCountBtn" onClick={()=>{console.log(product)}} disabled={quantity === stock ? 'disabled' : ''}>ADD TO CART</button>
+        <button className="itemCountBtn" onClick={()=>{handleAddToCart(quantity)}} disabled={quantity === stock ? 'disabled' : ''}>ADD TO CART</button>
     </div>
     );
 }

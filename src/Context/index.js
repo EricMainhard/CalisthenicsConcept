@@ -7,16 +7,22 @@ function CartProvider({children}){
     const [cartItems,setCartItems] = useState([]);
 
     function addProduct(item){
-        console.log(item);
-        cartItems.push(item);
+        if (productInCart(item)){
+            let i = cartItems.findIndex(item);
+            cartItems[i] += item.quantity;
+        }
+        else {
+            cartItems.push(item);
+        }
+        console.log(cartItems);
     }
 
     function productInCart(item){
-        cartItems.find(product => product.id == item.id)
+        cartItems.some(product => product.id === item.id)
     }
 
     function deleteProduct(item){
-    cartItems.filter(product => product.id != item.id);
+    cartItems.filter(product => product.id !== item.id);
     }
 
     function clearCart(){
