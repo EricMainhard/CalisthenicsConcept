@@ -13,10 +13,7 @@ import { Routes, Route, Link } from "react-router-dom";
 function App() {
 
   return (
-<<<<<<< HEAD
     <CartProvider>
-=======
->>>>>>> a11c5c33a08cafee56696a2f91165d580b779ae3
       <div className="App">
         <NavBar/>
         <Routes>
@@ -28,10 +25,7 @@ function App() {
         </Routes>
         <Footer/>
       </div>
-<<<<<<< HEAD
     </CartProvider>
-=======
->>>>>>> a11c5c33a08cafee56696a2f91165d580b779ae3
   );
 }
 

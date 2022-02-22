@@ -3,7 +3,7 @@ import React, {createContext} from "react";
 let cartItems = [];
 
   function addProduct(item){
-    for (product in cartItems){
+    for (let product in cartItems){
         if (product.id != item.id){
           cartItems.push(item)
         } else {
@@ -12,7 +12,7 @@ let cartItems = [];
       }
   }
   function deleteProduct(item){
-    cartItems.filter(products => product.id != item.id);
+    cartItems.filter(product => product.id != item.id);
   }
     
 const CartContext = createContext({

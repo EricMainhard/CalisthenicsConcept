@@ -13,7 +13,11 @@ function SingleItem({single}) {
 
     const info = useContext(CartContext);
 
-    function handleSize(size){
+    function handleSize(size,e){
+        document.querySelectorAll('.sizeBtn').forEach(btn => {
+            btn.style.border = 'none';
+        });
+        e.target.style.border = '1px solid black';
         setSingleProduct({...singleProduct,
             size})
     }
@@ -51,7 +55,7 @@ function SingleItem({single}) {
                     <div className="sizes">
                         {single.sizes.map(size => {
                             return (
-                                    <div type='button' key={size} className='sizeBtn' onClick={()=>{handleSize(size)}}>
+                                    <div type='button' key={size} className='sizeBtn' onClick={(e)=>{handleSize(size,e)}}>
                                         {size}
                                     </div>
                                 )

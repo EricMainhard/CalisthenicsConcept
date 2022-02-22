@@ -7,13 +7,8 @@ function CartProvider({children}){
     const [cartItems,setCartItems] = useState([]);
 
     function addProduct(item){
-        if (productInCart(item)){
-            let i = cartItems.findIndex(item);
-            cartItems[i] += item.quantity;
-        }
-        else {
-            cartItems.push(item);
-        }
+        console.log(item);
+        setCartItems([...cartItems,item]);
         console.log(cartItems);
     }
 
