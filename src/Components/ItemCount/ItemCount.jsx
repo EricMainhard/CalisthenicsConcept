@@ -1,9 +1,8 @@
 import React, {useState,useContext} from 'react';
+import CartContext from '../../Context/CartContext';
 import './itemCount.css';
-import { CartContext } from '../../Context';
 
 function ItemCount({stock,single}) {
-
     const [quantity,setQuantity] = useState(0)
     const {addProduct,productInCart} = useContext(CartContext);
     const [product,setProduct] = useState({});
@@ -38,7 +37,10 @@ function ItemCount({stock,single}) {
                 <i className="plus fas fa-plus"></i>
             </button>
         </div>
-        <button className="itemCountBtn" onClick={()=>{handleAddToCart(quantity)}} disabled={quantity === stock ? 'disabled' : ''}>ADD TO CART</button>
+        <button className="itemCountBtn" onClick={()=>{handleAddToCart(quantity)}} disabled={quantity === stock ? 'disabled' : ''}>
+            ADD TO CART
+        </button>
+        
     </div>
     );
 }

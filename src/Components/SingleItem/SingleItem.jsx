@@ -1,15 +1,17 @@
-import React, {useState,useRef} from 'react';
+import React, {useState,useEffect,useContext} from 'react';
+import CartContext from '../../Context/CartContext';
 import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
 function SingleItem({single}) {
 
-    let colorBtn = useRef(null);
     const [singleProduct,setSingleProduct] = useState({
     title: single.title,
     price: single.price,
     id: single.id
 });
+
+    const info = useContext(CartContext);
 
     function handleSize(size){
         setSingleProduct({...singleProduct,
@@ -40,7 +42,7 @@ function SingleItem({single}) {
                     <div className="colors">
                         {single.colors.map(color => {
                             return (
-                                <div type='button' key={color} className='colorBtn' useRef={colorBtn} onClick={(e)=>{handleColor(color,e)}} style={{backgroundColor:color}} >
+                                <div type='button' key={color} className='colorBtn' onClick={(e)=>{handleColor(color,e)}} style={{backgroundColor:color}} >
 
                                 </div>
                             )
