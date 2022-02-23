@@ -7,13 +7,22 @@ function CartProvider({children}){
     const [cartItems,setCartItems] = useState([]);
 
     function addProduct(item){
-        console.log(item);
-        setCartItems([...cartItems,item]);
-        console.log(cartItems);
+        if (productInCart(item)){
+            console.log('Product in cart');
+            let repeatedProduct = cartItems.find(product => product.id === item.id);
+            let i = cartItems.indexOf(repeatedProduct);
+            let cartItem = cartItems[i];
+            cartItem.quantity = cartItem.quantity + item.quantity;
+            debugger
+            cartItems.splice(i,1,cartItem);
+            setCartItems([...cartItems]);
+        } else {
+            setCartItems([...cartItems,item]);
+        }
     }
 
     function productInCart(item){
-        cartItems.some(product => product.id === item.id)
+        return cartItems.some(product => product.id == item.id);
     }
 
     function deleteProduct(item){

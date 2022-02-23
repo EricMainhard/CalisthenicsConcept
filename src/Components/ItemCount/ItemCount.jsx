@@ -1,10 +1,10 @@
 import React, {useState,useContext} from 'react';
-import CartContext from '../../Context/CartContext';
+import { CartContext } from '../../Context';
 import './itemCount.css';
 
 function ItemCount({stock,single}) {
-    const [quantity,setQuantity] = useState(0)
-    const {addProduct,cartItems} = useContext(CartContext);
+    const [quantity,setQuantity] = useState(0);
+    const {addProduct} = useContext(CartContext);
     const [product,setProduct] = useState({});
 
     const handleAddToCart = () => {

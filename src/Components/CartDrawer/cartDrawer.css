@@ -1,4 +1,4 @@
-.menuDrawer{
+.cartDrawer{
     transform: translateX(150%);
     background-color: black;
     width: 80vw;
@@ -10,13 +10,13 @@
     transition: .5s ease-in-out;
 }
 
-.closeMenu{
+.closeCart{
     color: var(--orange);
     margin: 1rem;
     font-size: 1.5rem;
 }
 
-.menuDrawerLink{
+.cartDrawerLink{
     display: block;
     background-color: white;
     text-align: center;
@@ -25,7 +25,7 @@
     transition: .3s ease-in-out;
 }
 
-.menuDrawerLink:hover{
+.cartDrawerLink:hover{
     color: var(--orange);
     transition: .3s ease-in-out;
 }
