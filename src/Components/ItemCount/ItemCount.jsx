@@ -9,6 +9,7 @@ function ItemCount({stock,single}) {
 
     const handleAddToCart = () => {
         addProduct(product);
+        console.log(product)
     }
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){

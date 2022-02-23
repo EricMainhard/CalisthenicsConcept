@@ -1,30 +1,23 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
 import './navbar.css';
 import Logo from "../Logo/Logo";
 import NavLinks from "../NavLinks/NavLinks";
 import NavIcons from "../NavIcons/NavIcons";
 import MenuDrawer from "../MenuDrawer/MenuDrawer";
 import CartDrawer from "../CartDrawer/CartDrawer";
+import { CartContext } from "../../Context";
 import { Link } from "react-router-dom";
 
 export default function NavBar(){
 
     const [isMenuOpen,setIsMenuOpen] = useState(false)
-    const [isCartOpen,setIsCartOpen] = useState(false)
+    const {handleOpenCartDrawer,isCartOpen} = useContext(CartContext);
 
     const handleOpenDrawer = (e)=> {
         if (e.target.classList.contains('openMenu')){
             setIsMenuOpen(true);
         } else if (e.target.classList.contains('closeMenu')){
             setIsMenuOpen(false);
-        }
-    }
-
-    const handleOpenCartDrawer = (e)=> {
-        if (e.target.classList.contains('openCart')){
-            setIsCartOpen(true);
-        } else if (e.target.classList.contains('closeCart')){
-            setIsCartOpen(false);
         }
     }
 

@@ -5,24 +5,34 @@ export const CartContext = createContext();
 function CartProvider({children}){
 
     const [cartItems,setCartItems] = useState([]);
+    const [isCartOpen,setIsCartOpen] = useState(false)
+
+    const handleOpenCartDrawer = ()=> {
+        if (isCartOpen){
+            setIsCartOpen(false);
+        } else {
+            setIsCartOpen(true);
+        }
+    }
 
     function addProduct(item){
         if (productInCart(item)){
-            console.log('Product in cart');
-            let repeatedProduct = cartItems.find(product => product.id === item.id);
+            let repeatedProduct = cartItems.find(product => product === item);
+            console.log(repeatedProduct);
             let i = cartItems.indexOf(repeatedProduct);
             let cartItem = cartItems[i];
-            cartItem.quantity = cartItem.quantity + item.quantity;
-            debugger
+            cartItem.quantity += item.quantity;
             cartItems.splice(i,1,cartItem);
             setCartItems([...cartItems]);
+            handleOpenCartDrawer();
         } else {
             setCartItems([...cartItems,item]);
+            handleOpenCartDrawer();
         }
     }
 
     function productInCart(item){
-        return cartItems.some(product => product.id == item.id);
+        return cartItems.some(product => product == item);
     }
 
     function deleteProduct(item){
@@ -39,7 +49,9 @@ function CartProvider({children}){
             addProduct,
             productInCart,
             deleteProduct,
-            clearCart
+            clearCart,
+            handleOpenCartDrawer,
+            isCartOpen
         }}>
             {children}
         </CartContext.Provider>

@@ -1,7 +1,7 @@
 .cartDrawer{
     transform: translateX(150%);
     background-color: black;
-    width: 80vw;
+    width: 50vw;
     height: 100vh;
     position: fixed;
     top: 0%;
@@ -28,4 +28,35 @@
 .cartDrawerLink:hover{
     color: var(--orange);
     transition: .3s ease-in-out;
+}
+
+.clearCartBtn{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: block;
+    background-color: white;
+    text-align: center;
+    color: black;
+    padding: 1rem;
+    transition: .3s ease-in-out;
+    font-size: 1.5rem;
+}
+.clearCartBtn:hover{
+    color: var(--orange);
+    transition: .3s ease-in-out;
+}
+.itemInCartInfo,.itemInCartQty{
+    color: white;
+}
+
+.itemInCart{
+    display: flex;
+    justify-content: space-around;
+}
+
+.itemInCartQty{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

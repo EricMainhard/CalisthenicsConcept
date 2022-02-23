@@ -16,5 +16,6 @@
     color: var(--orange);
     font-weight: 700;
     border-radius: 2rem;
-    margin-top: 1rem;
+    display: block;
+    margin: 1rem auto;
 }
