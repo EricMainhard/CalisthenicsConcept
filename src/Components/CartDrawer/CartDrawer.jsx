@@ -2,43 +2,50 @@ import React, {useEffect,useContext} from "react";
 import './cartDrawer.css';
 import { CartContext } from "../../Context";
 import { Link } from "react-router-dom";
-import { clear } from "@testing-library/user-event/dist/clear";
 
-function CartDrawer({openCartDrawer,isOpen}) {
+function CartDrawer() {
 
-    const {cartItems,clearCart} = useContext(CartContext);
+    const {cartItems,clearCart,handleOpenCartDrawer,isCartOpen,deleteProduct} = useContext(CartContext);
 
     const handleClearCart = ()=> {
         clearCart();
+        handleOpenCartDrawer();
+    }
+
+    const handleDeleteProduct = (e)=> {
+        deleteProduct(e.target.dataset.id);
     }
 
     useEffect(()=>{
-        if (isOpen){
+        if (isCartOpen){
             document.querySelector('.cartDrawer').style.transform = 'translateX(0%)';
         } else {
             document.querySelector('.cartDrawer').style.transform = 'translateX(150%)';
         }
-    },[openCartDrawer])
+    },[handleOpenCartDrawer,isCartOpen])
 
   return (
     <div className="cartDrawer">
-        <i className="fas fa-times closeCart" onClick={openCartDrawer}/>
+        <i className="fas fa-times closeCart" onClick={handleOpenCartDrawer}/>
         <div className="cartDrawerItems">
             {cartItems.map(product => {
                 return <div className="itemInCart">
                     <div className="itemInCartImg">
-                        <img src={product.image}/>
+                        <img src={`/img/products/${product.image}`}/>
                     </div>
                     <div className="itemInCartInfo">
-                        <h2>Product:{product.title}</h2>
-                        <h2>Price:${product.price}</h2>
-                        <h2>Color:{product.color}</h2>
-                        <h2>Size:{product.size}</h2>
+                        <p>Product:{product.title}</p>
+                        <p>Price:${product.price}</p>
+                        <p>Color:{product.color}</p>
+                        <p>Size:{product.size}</p>
                     </div>
                     <div className="itemInCartQty">
                         <span>-</span>
                         {product.quantity}
                         <span>+</span>
+                    </div>
+                    <div id="deleteProduct">
+                        <i className="fas fa-times deleteItem" data-id={product.id} onClick={handleDeleteProduct}/>
                     </div>
                 </div>
             })}

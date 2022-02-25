@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 
 export default function NavBar(){
 
+    const {handleOpenCartDrawer} = useContext(CartContext);
     const [isMenuOpen,setIsMenuOpen] = useState(false)
-    const {handleOpenCartDrawer,isCartOpen} = useContext(CartContext);
 
     const handleOpenDrawer = (e)=> {
         if (e.target.classList.contains('openMenu')){
@@ -27,7 +27,7 @@ export default function NavBar(){
             <NavLinks/>
             <NavIcons openDrawer={handleOpenDrawer} openCartDrawer={handleOpenCartDrawer}/>
             <MenuDrawer openDrawer={handleOpenDrawer} isOpen={isMenuOpen}/>
-            <CartDrawer openCartDrawer={handleOpenCartDrawer} isOpen={isCartOpen}/>
+            <CartDrawer/>
         </div>
     )
 }

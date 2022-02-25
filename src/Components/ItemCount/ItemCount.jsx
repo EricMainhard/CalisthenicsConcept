@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useState,useContext, useEffect} from 'react';
 import { CartContext } from '../../Context';
 import './itemCount.css';
 
@@ -7,19 +7,29 @@ function ItemCount({stock,single}) {
     const {addProduct} = useContext(CartContext);
     const [product,setProduct] = useState({});
 
+    useEffect(()=>{
+        setProduct({...single,quantity})
+    },[single]);
+
     const handleAddToCart = () => {
+        if (!product.color || !product.size){
+            alert('Pick a color and a size');
+            return
+        } else if (quantity === 0){
+            alert('Pick a quantity');
+            return
+        }
         addProduct(product);
-        console.log(product)
     }
     const handleQty = (e)=> {
         if (e.target.classList.contains('plus')){
             if (quantity < stock){
                 setQuantity(quantity + 1);
-                setProduct({...single,quantity});
+                setProduct({...single,quantity:quantity + 1});
             }
         } else if (e.target.classList.contains('minus')){
             setQuantity(quantity - 1);
-            setProduct({...single,quantity});
+            setProduct({...single,quantity:quantity - 1});
         }
     }
 

@@ -8,7 +8,8 @@ function SingleItem({single}) {
     const [singleProduct,setSingleProduct] = useState({
     title: single.title,
     price: single.price,
-    id: single.id
+    id: single.id,
+    image: single.image
 });
 
     const info = useContext(CartContext);

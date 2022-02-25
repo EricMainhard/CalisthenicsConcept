@@ -18,7 +18,6 @@ function CartProvider({children}){
     function addProduct(item){
         if (productInCart(item)){
             let repeatedProduct = cartItems.find(product => product === item);
-            console.log(repeatedProduct);
             let i = cartItems.indexOf(repeatedProduct);
             let cartItem = cartItems[i];
             cartItem.quantity += item.quantity;
@@ -36,7 +35,11 @@ function CartProvider({children}){
     }
 
     function deleteProduct(item){
-    cartItems.filter(product => product.id !== item.id);
+        cartItems.filter(product => product.id !== item.id);
+        setCartItems([cartItems]);
+        if (cartItems === []){
+            handleOpenCartDrawer();
+        }
     }
 
     function clearCart(){
