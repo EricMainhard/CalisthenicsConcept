@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function CartDrawer() {
 
-    const {cartItems,clearCart,handleOpenCartDrawer,isCartOpen,deleteProduct} = useContext(CartContext);
+    const {cartItems,clearCart,handleOpenCartDrawer,isCartOpen,deleteProduct,totalCart} = useContext(CartContext);
 
     const handleClearCart = ()=> {
         clearCart();
@@ -49,6 +49,7 @@ function CartDrawer() {
                     </div>
                 </div>
             })}
+        <span className="totalPrice">TOTAL: ${totalCart}</span>
         </div>
         <button className="clearCartBtn" onClick={handleClearCart}>CLEAR CART</button>
     </div>

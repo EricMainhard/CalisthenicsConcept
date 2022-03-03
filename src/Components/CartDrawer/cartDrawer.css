@@ -1,7 +1,7 @@
 .cartDrawer{
     transform: translateX(150%);
     background-color: black;
-    width: 50vw;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0%;
@@ -91,4 +91,14 @@
 .deleteItem{
     color: white;
     cursor: pointer;
+}
+
+.totalPrice{
+    color: var(--orange);
+}
+
+@media screen and (min-width: 768px) {
+    .cartDrawer{
+        width: 50vw;
+    }
 }

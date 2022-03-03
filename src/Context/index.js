@@ -5,6 +5,7 @@ export const CartContext = createContext();
 function CartProvider({children}){
 
     const [cartItems,setCartItems] = useState([]);
+    const [totalCart,setTotalCart] = useState(0);
     const [isCartOpen,setIsCartOpen] = useState(false)
 
     const handleOpenCartDrawer = ()=> {
@@ -23,27 +24,41 @@ function CartProvider({children}){
             cartItem.quantity += item.quantity;
             cartItems.splice(i,1,cartItem);
             setCartItems([...cartItems]);
+            updateTotal();
             handleOpenCartDrawer();
         } else {
             setCartItems([...cartItems,item]);
+            updateTotal();
             handleOpenCartDrawer();
         }
     }
 
+    function updateTotal(){
+        console.log(cartItems)
+        cartItems.forEach((product)=>{
+            let totalProduct = (product.quantity * product.price);
+            console.log((product.price * product.quantity))
+            setTotalCart(totalCart + totalProduct);
+        })
+    }
+
     function productInCart(item){
-        return cartItems.some(product => product == item);
+        return cartItems.some(product => product === item);
     }
 
     function deleteProduct(item){
         cartItems.filter(product => product.id !== item.id);
         setCartItems([cartItems]);
+        updateTotal();
         if (cartItems === []){
             handleOpenCartDrawer();
+            setTotalCart(0);
         }
     }
 
     function clearCart(){
-        setCartItems([]);
+        setCartItems([]);   
+        setTotalCart(0);
     }
 
     return(
@@ -53,6 +68,7 @@ function CartProvider({children}){
             productInCart,
             deleteProduct,
             clearCart,
+            totalCart,
             handleOpenCartDrawer,
             isCartOpen
         }}>
