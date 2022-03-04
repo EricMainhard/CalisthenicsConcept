@@ -5,11 +5,27 @@ import { Link } from "react-router-dom";
 
 function CartDrawer() {
 
-    const {cartItems,clearCart,handleOpenCartDrawer,isCartOpen,deleteProduct,totalCart} = useContext(CartContext);
+    const {
+        cartItems,
+        clearCart,
+        handleOpenCartDrawer,
+        isCartOpen,
+        deleteProduct,
+        totalCart,
+        addQuantity,
+        susbstractQuantity} = useContext(CartContext);
 
     const handleClearCart = ()=> {
         clearCart();
         handleOpenCartDrawer();
+    }
+
+    const handleQuantity = (item,event) => {
+        if (event.target.classList.contains('minus')){
+            susbstractQuantity(item);
+        } else if (event.target.classList.contains('plus')){
+            addQuantity(item);
+        }
     }
 
     const handleDeleteProduct = (e)=> {
@@ -40,9 +56,13 @@ function CartDrawer() {
                         <p>Size:{product.size}</p>
                     </div>
                     <div className="itemInCartQty">
-                        <span>-</span>
+                        <button type="button" className='minus normalBtn' onClick={()=>{handleQuantity(product)}}>
+                            <i className="minus fas fa-minus"></i>
+                        </button>
                         {product.quantity}
-                        <span>+</span>
+                        <button type="button" className='plus normalBtn'  onClick={()=>{handleQuantity(product)}}>
+                            <i className="plus fas fa-plus"></i>
+                        </button>
                     </div>
                     <div id="deleteProduct">
                         <i className="fas fa-times deleteItem" data-id={product.id} onClick={handleDeleteProduct}/>
