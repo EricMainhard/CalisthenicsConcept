@@ -97,6 +97,10 @@
     color: var(--orange);
 }
 
+.plus,.minus{
+    color: white;
+}
+
 @media screen and (min-width: 768px) {
     .cartDrawer{
         width: 50vw;

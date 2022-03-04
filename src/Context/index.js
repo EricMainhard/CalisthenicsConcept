@@ -17,11 +17,11 @@ function CartProvider({children}){
     }
 
     function addProduct(item){
-        if (productInCart(item)){
-            let i = cartItems.findIndex( i => i.id === item.id);
-            let oldQuantity = i.quantity;
+        let i = cartItems.findIndex(i => i.id === item.id);
+        if (i > -1){
+            let oldQuantity = cartItems[i].quantity;
             cartItems.splice(i,1);
-            setCartItems([...cartItems],{...item, quantity: oldQuantity + item.quantity});
+            setCartItems([...cartItems,{...item, quantity: oldQuantity + item.quantity}]);
             updateTotal();
             handleOpenCartDrawer();
         } else {
@@ -32,13 +32,7 @@ function CartProvider({children}){
     }
 
     const addQuantity = (item) => {
-        if (item.stock > item.quantity) {
-            item.quantity += 1
-            setCartItems([...cartItems]);
-            updateTotal();
-        } else {
-            alert('Max quantity')
-        }
+        console.log(item)
     }
 
     const substractQuantity = (item) => {
@@ -53,12 +47,8 @@ function CartProvider({children}){
 
     function updateTotal(){
         const totalPrice = cartItems.reduce((prev,curr)=> prev + curr.quantity * curr.price ,0);
-            setTotalCart(totalPrice);
+        return totalPrice;
         }
-
-    function productInCart(item){
-        return cartItems.some(product => product === item);
-    }
 
     function deleteProduct(item){
         cartItems.filter(product => product.id !== item.id);
@@ -79,7 +69,6 @@ function CartProvider({children}){
         <CartContext.Provider value={{
             cartItems,
             addProduct,
-            productInCart,
             deleteProduct,
             clearCart,
             substractQuantity,

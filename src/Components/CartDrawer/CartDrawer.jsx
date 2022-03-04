@@ -13,17 +13,17 @@ function CartDrawer() {
         deleteProduct,
         totalCart,
         addQuantity,
-        susbstractQuantity} = useContext(CartContext);
+        substractQuantity} = useContext(CartContext);
 
     const handleClearCart = ()=> {
         clearCart();
         handleOpenCartDrawer();
     }
 
-    const handleQuantity = (item,event) => {
-        if (event.target.classList.contains('minus')){
-            susbstractQuantity(item);
-        } else if (event.target.classList.contains('plus')){
+    const handleQuantity = (item,e) => {
+        if (e.target.classList.contains('minus')){
+            substractQuantity(item);
+        } else if (e.target.classList.contains('plus')){
             addQuantity(item);
         }
     }
@@ -54,13 +54,14 @@ function CartDrawer() {
                         <p>Price:${product.price}</p>
                         <p>Color:{product.color}</p>
                         <p>Size:{product.size}</p>
+                        <p>{product.stock}</p>
                     </div>
                     <div className="itemInCartQty">
-                        <button type="button" className='minus normalBtn' onClick={()=>{handleQuantity(product)}}>
+                        <button type="button" className='minus normalBtn' onClick={(e)=>{handleQuantity(product,e)}}>
                             <i className="minus fas fa-minus"></i>
                         </button>
                         {product.quantity}
-                        <button type="button" className='plus normalBtn'  onClick={()=>{handleQuantity(product)}}>
+                        <button type="button" className='plus normalBtn'  onClick={(e)=>{handleQuantity(product,e)}}>
                             <i className="plus fas fa-plus"></i>
                         </button>
                     </div>

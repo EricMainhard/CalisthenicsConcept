@@ -9,7 +9,8 @@ function SingleItem({single}) {
     title: single.title,
     price: single.price,
     id: single.id,
-    image: single.image
+    image: single.image,
+    stock: single.stock
 });
 
     const info = useContext(CartContext);
