@@ -1,5 +1,4 @@
-import React, {useState,useEffect,useContext} from 'react';
-import { CartContext } from '../../Context/';
+import React, {useState} from 'react';
 import './singleItem.css';
 import ItemCount from "../ItemCount/ItemCount";
 
@@ -12,8 +11,6 @@ function SingleItem({single}) {
     image: single.image,
     stock: single.stock
 });
-
-    const info = useContext(CartContext);
 
     function handleSize(size,e){
         document.querySelectorAll('.sizeBtn').forEach(btn => {

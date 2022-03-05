@@ -3,6 +3,7 @@ import './item.css';
 import { Link } from 'react-router-dom';
 
 function Item({product}){
+
     return(
         <div className="item">
                 <div className="itemHeader">

@@ -15,7 +15,7 @@ export default function NavIcons({openDrawer,openCartDrawer}) {
             <i className="navIcon sm_hidden fas fa-search"></i>
             {user && <i className="navIcon sm_hidden fas fa-user"></i>}
 
-            {user && <i className="navIcon sm_hidden fas fa-shopping-cart openCart" onClick={openCartDrawer}></i>}
+            {user && <i className="navIcon fas fa-shopping-cart openCart" onClick={openCartDrawer}></i>}
             <span className="sm_hidden">{cartItems.length}</span>
 
             {!user && <Link className="link sm_hidden" to="/login">LOGIN</Link>}

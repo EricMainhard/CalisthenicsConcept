@@ -6,10 +6,9 @@ import ItemDetail from './Components/ItemDetail/ItemDetail';
 import NotFound from './Components/NotFound/NotFound.jsx';
 import Login from './Components/Login/Login'
 import Footer from './Components/Footer/Footer';
-import Categories from './Components/Categories/Categories.jsx'
 import './App.css';
 import CartProvider from './Context';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 

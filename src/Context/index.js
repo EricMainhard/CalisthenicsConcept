@@ -8,6 +8,10 @@ function CartProvider({children}){
     const [totalCart,setTotalCart] = useState(0);
     const [isCartOpen,setIsCartOpen] = useState(false)
 
+    useEffect(()=>{
+        setTotalCart(cartItems.reduce((prev,curr)=> prev + curr.quantity * curr.price ,0))
+    },[updateTotal])
+
     const handleOpenCartDrawer = ()=> {
         if (isCartOpen){
             setIsCartOpen(false);
@@ -32,7 +36,9 @@ function CartProvider({children}){
     }
 
     const addQuantity = (item) => {
-        console.log(item)
+        let i = cartItems.indexOf(item);
+        cartItems[i].quantity = cartItems[i].quantity + 1;
+        updateTotal();
     }
 
     const substractQuantity = (item) => {
@@ -41,20 +47,23 @@ function CartProvider({children}){
             setCartItems([...cartItems]);
             updateTotal();
         } else {
-            alert('Min quantity');
+            deleteProduct(item.id);
+            updateTotal();
         }
     }
 
     function updateTotal(){
         const totalPrice = cartItems.reduce((prev,curr)=> prev + curr.quantity * curr.price ,0);
-        return totalPrice;
+        setTotalCart(totalPrice);
         }
 
     function deleteProduct(item){
-        cartItems.filter(product => product.id !== item.id);
-        setCartItems([...cartItems]);
-        updateTotal();
-        if (cartItems === []){
+        if (cartItems.length >= 1){
+            let newCart = cartItems.filter(product => product.id != item);
+            setCartItems(newCart);
+            updateTotal();
+        } else {
+            setCartItems([]);
             handleOpenCartDrawer();
             setTotalCart(0);
         }

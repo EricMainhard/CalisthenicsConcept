@@ -1,5 +1,5 @@
 .homeBanner{
-    background-image: url('/public/img/homeBanner.jpg');
+    background-image: url('/img/homeBanner.jpg');
     background-size: cover;
     background-position: bottom;
     height: 75vh;

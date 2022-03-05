@@ -97,7 +97,7 @@
     color: var(--orange);
 }
 
-.plus,.minus{
+.cartDrawerPlus,.cartDrawerMinus{
     color: white;
 }
 
