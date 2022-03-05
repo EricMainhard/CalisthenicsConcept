@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 import SingleItem from "../SingleItem/SingleItem.jsx";
 import products from '../../products.json';
 import NotFound from "../NotFound/NotFound";
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 function ItemDetail(){
 
@@ -12,14 +13,13 @@ function ItemDetail(){
     const [loading,setLoading] = useState(true);
     const [error,setError] = useState(false);
     
-    useEffect(()=>{
-        setTimeout(()=>{
-            setError(false)
-            let product = products.find(product => product.id == id.id);
-            setSelectedProduct(product);
-            setLoading(false);
-        },2000)
-    },[id])
+    useEffect(() => {
+        const db = getFirestore()
+        const queryDb = doc(db, "products", id);
+        getDoc(queryDb)
+        .then(resp => setSelectedProduct({ id: resp.id, ...resp.data() }))
+        .finally(() => setLoading(false))
+    }, [id])
 
     return(
         <div className="detailContainer">

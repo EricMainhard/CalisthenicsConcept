@@ -1,10 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDW-pM_udS1_XaxPn9vehlM0uH7Qe5yaRk",
     authDomain: "calisthenicsconcept.firebaseapp.com",
@@ -14,6 +10,8 @@ const firebaseConfig = {
     appId: "1:906648221111:web:b644c1f772a7e25db6a432"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+
+export const getFirestoreApp = () => {
+    return app
+}
