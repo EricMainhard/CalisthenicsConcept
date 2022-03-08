@@ -1,0 +1,11 @@
+.deleteItem:hover{
+    transition: .3s ease-in-out;
+    animation: shake;
+    animation-duration: 1s;
+}
+
+@keyframes shake {
+    10%{transform: rotate(25deg);}
+    50%{transform: rotate(-25deg);}
+    100%{transform: rotate(0deg);}
+}

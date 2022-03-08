@@ -42,7 +42,12 @@ function CartProvider({children}){
 
     const addQuantity = (item) => {
         let i = cartItems.indexOf(item);
-        cartItems[i].quantity = cartItems[i].quantity + 1;
+        if (cartItems[i].quantity < cartItems[i].stock){
+            cartItems[i].quantity = cartItems[i].quantity + 1;
+        } else {
+            alert('You have reached the stock limit')
+            return
+        }
         updateTotal();
     }
 

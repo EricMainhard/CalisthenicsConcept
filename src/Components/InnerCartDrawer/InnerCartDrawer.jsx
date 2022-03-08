@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../Context'
 import EmptyCart from '../EmptyCart/EmptyCart';
+import './innerCartDrawer.css';
 
 function InnerCartDrawer() {
 
@@ -38,7 +39,6 @@ function InnerCartDrawer() {
                 <p>Price:${product.price}</p>
                 <p>Color:{product.color}</p>
                 <p>Size:{product.size}</p>
-                <p>{product.stock}</p>
             </div>
             <div className="itemInCartQty">
                 <button type="button" className='cartDrawerMinus normalBtn' onClick={(e)=>{handleQuantity(product,e)}}>
@@ -50,7 +50,7 @@ function InnerCartDrawer() {
                 </button>
             </div>
             <div id="deleteProduct">
-                <i className="fas fa-times deleteItem" data-id={product.id} onClick={handleDeleteProduct}/>
+                <i className="fas fa-trash deleteItem" data-id={product.id} onClick={handleDeleteProduct}/>
             </div>
         </div>
     })}

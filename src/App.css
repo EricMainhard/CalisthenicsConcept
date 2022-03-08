@@ -28,6 +28,11 @@
     outline: none;
 }
 
+.active-link{
+    color: var(--orange);
+    text-decoration: underline;
+}
+
 .link{
     text-decoration: none;
     color: inherit;

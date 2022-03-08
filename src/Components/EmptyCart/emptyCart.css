@@ -23,11 +23,12 @@
 .far.fa-frown-open{
     font-size: 4rem;
     animation-name: spin;
-    animation-duration: 3s;
-    animation-delay: 3s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0);}
 }

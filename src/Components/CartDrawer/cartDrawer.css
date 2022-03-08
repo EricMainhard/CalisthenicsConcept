@@ -53,6 +53,7 @@
 .itemInCart{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 1rem;
 }
 
 .itemInCartImg {
@@ -95,10 +96,13 @@
 
 .totalPrice{
     color: var(--orange);
+    position: absolute;
+    padding: 2rem;
 }
 
-.cartDrawerPlus,.cartDrawerMinus{
+.cartDrawerPlus i,.cartDrawerMinus i{
     color: white;
+    background-color: black;
 }
 
 @media screen and (min-width: 768px) {
