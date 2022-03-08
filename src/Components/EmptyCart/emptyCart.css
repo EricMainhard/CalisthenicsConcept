@@ -24,6 +24,7 @@
     font-size: 4rem;
     animation-name: spin;
     animation-duration: 3s;
+    animation-delay: 3s;
 }
 
 @keyframes spin {

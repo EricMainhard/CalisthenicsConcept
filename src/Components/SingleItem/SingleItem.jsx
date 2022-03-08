@@ -12,22 +12,6 @@ function SingleItem({single}) {
     stock: single.stock
 });
 
-    function handleSize(size,e){
-        document.querySelectorAll('.sizeBtn').forEach(btn => {
-            btn.style.border = 'none';
-        });
-        e.target.style.border = '1px solid black';
-        setSingleProduct({...singleProduct,
-            size})
-    }
-    function handleColor(color,e){
-        document.querySelectorAll('.colorBtn').forEach(btn => {
-            btn.style.border = 'none';
-        });
-        e.target.style.border = '1px solid black';
-        setSingleProduct({...singleProduct,
-            color})
-    }
 
     return(
         <div className='singleContainer container'>
@@ -41,27 +25,7 @@ function SingleItem({single}) {
                     {single.description}
                 </p>
                 <div className='singleForm'>
-                <div className="singleOptions">
-                    <div className="colors">
-                        {single.colors.map(color => {
-                            return (
-                                <div type='button' key={color} className='colorBtn' onClick={(e)=>{handleColor(color,e)}} style={{backgroundColor:color}} >
-
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="sizes">
-                        {single.sizes.map(size => {
-                            return (
-                                    <div type='button' key={size} className='sizeBtn' onClick={(e)=>{handleSize(size,e)}}>
-                                        {size}
-                                    </div>
-                                )
-                        })}
-                    </div>
-                </div>
-                <ItemCount stock={single.stock} single={singleProduct}/>
+                    <ItemCount stock={single.stock} single={singleProduct}/>
                 </div>
             </div>
         </div>

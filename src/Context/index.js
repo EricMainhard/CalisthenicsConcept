@@ -21,7 +21,7 @@ function CartProvider({children}){
     }
 
     function addProduct(item){
-        let i = cartItems.findIndex(i => i.id === item.id);
+        let i = inCart(item);
         if (i > -1){
             let oldQuantity = cartItems[i].quantity;
             cartItems.splice(i,1);
@@ -33,6 +33,11 @@ function CartProvider({children}){
             updateTotal();
             handleOpenCartDrawer();
         }
+    }
+
+    function inCart(item){
+        let i = cartItems.findIndex(i => i.id === item.id);
+        return i
     }
 
     const addQuantity = (item) => {
@@ -83,6 +88,7 @@ function CartProvider({children}){
             substractQuantity,
             addQuantity,
             totalCart,
+            inCart,
             handleOpenCartDrawer,
             isCartOpen
         }}>

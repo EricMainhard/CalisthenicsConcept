@@ -2,7 +2,7 @@ import React from "react";
 import './itemList.css';
 import Item from '../Item/Item';
 
-function ItemList({products,search}){
+function ItemList({products}){
     return(
         <div className="itemsList">
             {products.map((product) => {
