@@ -8,7 +8,6 @@ function InnerCartDrawer() {
     const {
         cartItems,
         deleteProduct,
-        totalCart,
         addQuantity,
         substractQuantity
     } = useContext(CartContext);
@@ -29,7 +28,7 @@ function InnerCartDrawer() {
     <div className='innerCartDrawer'>
 
     
-    { cartItems.map(product => {
+    { cartItems && cartItems.map(product => {
         return <div className="itemInCart">
             <div className="itemInCartImg">
                 <img src={`/img/products/${product.image}`}/>
@@ -55,7 +54,7 @@ function InnerCartDrawer() {
         </div>
     })}
 
-    {cartItems.length === 0 && <EmptyCart/>}
+    {cartItems ? cartItems.length === 0 && <EmptyCart/> : ''}
 
   </div>
   )

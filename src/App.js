@@ -5,6 +5,7 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemDetail from './Components/ItemDetail/ItemDetail';
 import NotFound from './Components/NotFound/NotFound.jsx';
 import Login from './Components/Login/Login'
+import PurchaseForm from './Components/PurchaseForm/PurchaseForm';
 import Footer from './Components/Footer/Footer';
 import './App.css';
 import CartProvider from './Context';
@@ -24,6 +25,7 @@ function App() {
           <Route path='*' element={<NotFound/>}/>
         </Routes>
         <Footer/>
+        <PurchaseForm/>
       </div>
     </CartProvider>
   );

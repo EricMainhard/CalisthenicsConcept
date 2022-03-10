@@ -30,11 +30,14 @@
     transition: .3s ease-in-out;
 }
 
-.clearCartBtn{
+.cartDrawerBtns{
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+.clearCartBtn,.goToPayBtn{
     display: block;
+    width: 100%;
     background-color: white;
     text-align: center;
     color: black;
@@ -42,7 +45,7 @@
     transition: .3s ease-in-out;
     font-size: 1.5rem;
 }
-.clearCartBtn:hover{
+.clearCartBtn:hover,.goToPayBtn:hover{
     color: var(--orange);
     transition: .3s ease-in-out;
 }

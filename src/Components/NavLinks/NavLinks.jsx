@@ -1,27 +1,12 @@
-import React, {useEffect,useState} from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navlinks.css';
 
-export default function NavLinks() {
+export default function NavLinks({categories}) {
 
   const {pathname} = useLocation();
 
-  useEffect(()=>{
-    console.log()
-  },[pathname])
-
-  const [categories,setCategories] = useState([
-    {
-      id:"accesories",
-      title: "Accesories"
-    },
-    {
-      id:"clothes",
-      title: "Clothes"
-    }
-  ]);
-  
-  return <div className="navLinks">
+  return <div className="navLinks sm_hidden">
     <ul className="navLinksList">
       {categories.map(category => {
         return(

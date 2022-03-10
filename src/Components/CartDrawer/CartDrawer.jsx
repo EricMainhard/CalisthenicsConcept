@@ -1,6 +1,7 @@
 import React, {useEffect,useContext} from "react";
 import './cartDrawer.css';
 import InnerCartDrawer from "../InnerCartDrawer/InnerCartDrawer";
+import PurchaseForm from "../PurchaseForm/PurchaseForm";
 import { CartContext } from "../../Context";
 
 function CartDrawer() {
@@ -10,7 +11,8 @@ function CartDrawer() {
         totalCart,
         clearCart,
         handleOpenCartDrawer,
-        isCartOpen
+        isCartOpen,
+        handleOpenPurchaseForm
         } = useContext(CartContext);
 
     const handleClearCart = ()=> {
@@ -31,9 +33,12 @@ function CartDrawer() {
         <i className="fas fa-times closeCart" onClick={handleOpenCartDrawer}/>
         <div className="cartDrawerItems">
             <InnerCartDrawer/>
-            {cartItems.length > 0 && <span className="totalPrice">TOTAL: ${totalCart}</span>}
+            {cartItems ? cartItems.length > 0 && <span className="totalPrice">TOTAL: ${totalCart}</span> : ''}
         </div>
-        <button className="clearCartBtn" onClick={handleClearCart}>CLEAR CART</button>
+        <div className="cartDrawerBtns">
+            <button className="goToPayBtn" onClick={(e)=>{handleOpenPurchaseForm(e)}}>GO TO PAY</button>
+            <button className="clearCartBtn" onClick={handleClearCart}>CLEAR CART</button>
+        </div>
     </div>
     );
 }

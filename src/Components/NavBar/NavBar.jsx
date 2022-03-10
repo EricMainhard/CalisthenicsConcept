@@ -13,6 +13,17 @@ export default function NavBar(){
     const {handleOpenCartDrawer} = useContext(CartContext);
     const [isMenuOpen,setIsMenuOpen] = useState(false)
 
+    const [categories,setCategories] = useState([
+        {
+          id:"accesories",
+          title: "Accesories"
+        },
+        {
+          id:"clothes",
+          title: "Clothes"
+        }
+      ]);
+
     const handleOpenDrawer = (e)=> {
         if (e.target.classList.contains('openMenu')){
             setIsMenuOpen(true);
@@ -24,9 +35,9 @@ export default function NavBar(){
     return(
         <div className="navBar">
             <Link to="/"><Logo/></Link>
-            <NavLinks/>
+            <NavLinks categories={categories}/>
             <NavIcons openDrawer={handleOpenDrawer} openCartDrawer={handleOpenCartDrawer}/>
-            <MenuDrawer openDrawer={handleOpenDrawer} isOpen={isMenuOpen}/>
+            <MenuDrawer openDrawer={handleOpenDrawer} isOpen={isMenuOpen} categories={categories}/>
             <CartDrawer/>
         </div>
     )

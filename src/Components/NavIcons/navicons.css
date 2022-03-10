@@ -3,3 +3,13 @@
     gap:1rem ;
     align-items: center;
 }
+
+.fa-ellipsis-h{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.fa-shopping-cart{
+    grid-column: 3;
+    grid-row: 1;
+}
