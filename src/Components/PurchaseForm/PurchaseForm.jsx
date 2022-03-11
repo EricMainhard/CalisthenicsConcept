@@ -16,8 +16,20 @@ function PurchaseForm({children}) {
             X
           </button>
           <form>
-            <label>Name:</label>
+            <h1>Great choice!</h1>
+            <p>For security we need you to feel this form and that's all</p>
+            <label htmlFor="">Name:</label>
+            <input type="text"></input>
+            <labe lhtmlFor="">Last name:</labe>
+            <input type="text"></input>
+            <label htmlFor="">Phone:</label>
+            <input type="number" ></input>
+            <label htmlFor="">Email:</label>
+            <input type="email"></input>
+            <label htmlFor="">City:</label>
             <input></input>
+            <label htmlFor="">I wan't to receive offers and news</label>
+            <input type="checkbox" name="" id="" />
           </form>
         </div>
     </div>, document.getElementById('form')

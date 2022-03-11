@@ -28,7 +28,7 @@ function InnerCartDrawer() {
     <div className='innerCartDrawer'>
 
     
-    { cartItems && cartItems.map(product => {
+    { cartItems ? cartItems.map(product => {
         return <div className="itemInCart">
             <div className="itemInCartImg">
                 <img src={`/img/products/${product.image}`}/>
@@ -52,7 +52,7 @@ function InnerCartDrawer() {
                 <i className="fas fa-trash deleteItem" data-id={product.id} onClick={handleDeleteProduct}/>
             </div>
         </div>
-    })}
+    }):''}
 
     {cartItems ? cartItems.length === 0 && <EmptyCart/> : ''}
 
