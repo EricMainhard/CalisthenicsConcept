@@ -81,9 +81,8 @@ function CartProvider({children}){
 
     function deleteProduct(item){
         if (cartItems.length >= 1){
-            let newCart = cartItems.filter(product => product.id != item);
-            setCartItems(newCart);
-            localStorage.setItem('cart',JSON.stringify(newCart));
+            setCartItems(cartItems.filter(product => product.id != item));
+            localStorage.setItem('cart',JSON.stringify(cartItems));
             updateTotal();
         } else {
             setCartItems([]);
@@ -101,7 +100,6 @@ function CartProvider({children}){
 
     function handleOpenPurchaseForm(e){
         e.stopPropagation();
-        console.log(e)
         setIsFormOpen(!isFormOpen);
     }
 
