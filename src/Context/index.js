@@ -4,7 +4,7 @@ export const CartContext = createContext();
 
 function CartProvider({children}){
 
-    const [cartItems,setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
+    const [cartItems,setCartItems] = useState([]);
     const [totalCart,setTotalCart] = useState(0);
     const [isCartOpen,setIsCartOpen] = useState(false)
     const [isFormOpen,setIsFormOpen] = useState(false);
@@ -14,7 +14,12 @@ function CartProvider({children}){
     },[updateTotal])
     
     useEffect(()=>{
-        cartItems.length > 0 && localStorage.setItem('cart',JSON.stringify(cartItems));
+        localStorage.getItem('cart') ? setCartItems(JSON.parse(localStorage.getItem('cart'))) : setCartItems([]);
+    },[])
+
+    useEffect(()=>{
+        cartItems.length > 0 ? localStorage.setItem('cart',JSON.stringify(cartItems))
+        : localStorage.removeItem('cart');
     },[cartItems])
 
     const handleOpenCartDrawer = ()=> {
@@ -81,9 +86,9 @@ function CartProvider({children}){
         }
 
     function deleteProduct(item){
-        if (cartItems.length >= 1){
-            setCartItems(cartItems.filter(product => product.id != item));
-            
+        if (cartItems.length > 0){
+            let newCart = cartItems.filter(product => product.id != item);
+            setCartItems(newCart);
             updateTotal();
         } else {
             setCartItems([]);
