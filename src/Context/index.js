@@ -18,7 +18,7 @@ function CartProvider({children}){
     },[])
 
     useEffect(()=>{
-        cartItems.length > 0 ? localStorage.setItem('cart',JSON.stringify(cartItems))
+        cartItems && cartItems.length > 0 ? localStorage.setItem('cart',JSON.stringify(cartItems))
         : localStorage.removeItem('cart');
     },[cartItems])
 
