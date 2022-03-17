@@ -4,7 +4,7 @@ export const CartContext = createContext();
 
 function CartProvider({children}){
 
-    const [cartItems,setCartItems] = useState([]);
+    const [cartItems,setCartItems] = useState(JSON.parse(localStorage.getItem('cart')));
     const [totalCart,setTotalCart] = useState(0);
     const [isCartOpen,setIsCartOpen] = useState(false)
     const [isFormOpen,setIsFormOpen] = useState(false);
@@ -14,8 +14,8 @@ function CartProvider({children}){
     },[updateTotal])
     
     useEffect(()=>{
-        setCartItems(JSON.parse(localStorage.getItem('cart')));
-    },[])
+        cartItems.length > 0 && localStorage.setItem('cart',JSON.stringify(cartItems));
+    },[cartItems])
 
     const handleOpenCartDrawer = ()=> {
         if (isCartOpen){
@@ -27,16 +27,16 @@ function CartProvider({children}){
 
     function addProduct(item){
         let i = inCart(item);
+        console.log(i)
         if (i > -1){
             let oldQuantity = cartItems[i].quantity;
             cartItems.splice(i,1);
             setCartItems([...cartItems,{...item, quantity: oldQuantity + item.quantity}]);
-            localStorage.setItem('cart',JSON.stringify(cartItems));
             updateTotal();
             handleOpenCartDrawer();
         } else {
             setCartItems([...cartItems,item]);
-            localStorage.setItem('cart',JSON.stringify(cartItems));
+            
             updateTotal();
             handleOpenCartDrawer();
         }
@@ -49,10 +49,11 @@ function CartProvider({children}){
 
     const addQuantity = (item) => {
         let i = cartItems.indexOf(item);
+        console.log(i)
         if (cartItems[i].quantity < cartItems[i].stock){
             cartItems[i].quantity = cartItems[i].quantity + 1;
             setCartItems([...cartItems]);
-            localStorage.setItem('cart',JSON.stringify(cartItems));
+            
         } else {
             alert('You have reached the stock limit')
             return
@@ -64,12 +65,12 @@ function CartProvider({children}){
         if (item.quantity > 1) {
             item.quantity -= 1
             setCartItems([...cartItems]);
-            localStorage.setItem('cart',JSON.stringify(cartItems));
+            
             updateTotal();
         } else {
             deleteProduct(item.id);
             setCartItems([...cartItems]);
-            localStorage.setItem('cart',JSON.stringify(cartItems));
+            
             updateTotal();
         }
     }
@@ -82,7 +83,7 @@ function CartProvider({children}){
     function deleteProduct(item){
         if (cartItems.length >= 1){
             setCartItems(cartItems.filter(product => product.id != item));
-            localStorage.setItem('cart',JSON.stringify(cartItems));
+            
             updateTotal();
         } else {
             setCartItems([]);

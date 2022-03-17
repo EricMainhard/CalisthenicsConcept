@@ -37,7 +37,7 @@ function CartDrawer() {
         </div>
         <div className="cartDrawerBtns">
             { cartItems ? cartItems.length > 0 && <button className="goToPayBtn" onClick={(e)=>{handleOpenPurchaseForm(e)}}>GO TO PAY</button> : ''}
-            { cartItems ? cartItems.length > 0 && <button className="clearCartBtn" onClick={handleClearCart}>CLEAR CART</button> : ''}
+            <button className="clearCartBtn" onClick={handleClearCart}>CLEAR CART</button>
         </div>
     </div>
     );
