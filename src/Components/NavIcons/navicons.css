@@ -3,6 +3,10 @@
     gap:1rem ;
     align-items: center;
 }
+.navIcons form{
+    transform: scaleX(0%);
+    transition: .3s ease;
+}
 
 .fa-ellipsis-h{
     grid-column: 1;
@@ -12,4 +16,14 @@
 .fa-shopping-cart{
     grid-column: 3;
     grid-row: 1;
+}
+
+.navIcon{
+    cursor: pointer;
+}
+
+.searchForm input {
+    border-radius: 2rem;
+    outline: none;
+    padding: .2rem;
 }

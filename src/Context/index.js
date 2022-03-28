@@ -8,6 +8,7 @@ function CartProvider({children}){
     const [totalCart,setTotalCart] = useState(0);
     const [isCartOpen,setIsCartOpen] = useState(false)
     const [isFormOpen,setIsFormOpen] = useState(false);
+    const [searchTerms,setSearchTerms] = useState('');
 
     useEffect(()=>{
         setTotalCart(cartItems && cartItems.reduce((prev,curr)=> prev + curr.quantity * curr.price ,0))
@@ -109,6 +110,13 @@ function CartProvider({children}){
         setIsFormOpen(!isFormOpen);
     }
 
+    function handleSearch(e){
+        setSearchTerms(e.target.value);
+        const terms = ['a','b','c'];
+        terms.filter(term => term.includes(searchTerms));
+        console.log(terms,searchTerms);
+    }
+
     return(
         <CartContext.Provider value={{
             cartItems,
@@ -123,7 +131,10 @@ function CartProvider({children}){
             isCartOpen,
             isFormOpen,
             setIsFormOpen,
-            handleOpenPurchaseForm
+            handleOpenPurchaseForm,
+            searchTerms,
+            setSearchTerms,
+            handleSearch
         }}>
             {children}
         </CartContext.Provider>

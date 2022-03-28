@@ -19,6 +19,7 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path="/" element={<HomeBanner/>}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/products" element={<ItemListContainer/>}/>
           <Route path="/products/:id" element={<ItemDetail/>}/>
           <Route path="/categories/:category" element={<ItemListContainer/>}/>
